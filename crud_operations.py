@@ -8,10 +8,10 @@ class Review(BaseModel):
     content: str
 
 def create_review(review: Review):
-    if review.title in reviews:
+    if review['Title'] in reviews:
         raise ValueError("Review already exists")
     else:
-        reviews[review.title] = review
+        reviews[review['Title']] = review
 
 def read_reviews():
     return reviews

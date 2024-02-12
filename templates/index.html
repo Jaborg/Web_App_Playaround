@@ -4,15 +4,42 @@
     <title>Book Review API</title>
 </head>
 <body>
-    <h1>{{ message }}</h1>
-    <a href="/reviews/">View Reviews</a>
-    <h2>Add a New Review</h2>
-    <form action="/reviews/" method="post">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-        <label for="content">Content:</label><br>
-        <textarea id="content" name="content"></textarea><br>
-        <input type="submit" value="Submit">
-    </form>
+    <h1>Add a New Review</h1>
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content"></textarea><br>
+    <button onclick="submitReview()">Submit</button>
+
+    <script>
+        async function submitReview() {
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            
+            const review = { title, content };
+            
+            // Optionally, you can log the review object for debugging
+            console.log(review);
+            console.log(JSON.stringify(review))
+
+            // Handle the review object, e.g., send it to the server
+            // Here, you can use fetch or any other method to send the review object
+            try {
+                const response = await fetch('/reviews/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(review)
+                });
+                const data = await response.json();
+                console.log(data);
+                // Optionally, you can handle the response from the server
+            } catch (error) {
+                console.error('Error:', error);
+                // Optionally, you can handle errors
+            }
+        }
+    </script>
 </body>
 </html>

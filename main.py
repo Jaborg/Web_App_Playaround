@@ -2,14 +2,16 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from logging import log
+
 from crud_operations import create_review, read_reviews, read_review, update_review, delete_review
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 class ReviewInput(BaseModel):
-    title: str
-    content: str
+    Title: str
+    Content: str
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
@@ -22,7 +24,7 @@ async def read_reviews(request: Request):
 
 @app.post("/reviews/", response_class=HTMLResponse)
 async def create_review_handler(request: Request, review: ReviewInput):
-    create_review(review)
+    create_review({'Title':review.Title,'Content':review.Content})
     return templates.TemplateResponse("review_created.html", {"request": request, "review": review})
 
 @app.get("/reviews/{title}", response_class=HTMLResponse)
