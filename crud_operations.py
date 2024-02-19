@@ -1,35 +1,16 @@
+import os
+
 from pydantic import BaseModel
 
 # In-memory storage for book reviews
-reviews = {}
+reviews = os.listdir('templates/reviews')
 
 class Review(BaseModel):
     title: str
     content: str
 
-def create_review(review: Review):
-    if review['Title'] in reviews:
-        raise ValueError("Review already exists")
-    else:
-        reviews[review['Title']] = review
-
-def read_reviews():
+def read_reviews_crud():
     return reviews
 
 def read_review(title: str):
-    if title in reviews:
-        return reviews[title]
-    else:
-        raise ValueError("Review not found")
-
-def update_review(title: str, review: Review):
-    if title in reviews:
-        reviews[title] = review
-    else:
-        raise ValueError("Review not found")
-
-def delete_review(title: str):
-    if title in reviews:
-        del reviews[title]
-    else:
-        raise ValueError("Review not found")
+    return f'reviews/{title}'
