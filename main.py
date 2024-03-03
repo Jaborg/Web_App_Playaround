@@ -17,7 +17,8 @@ class ReviewInput(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    reviews = read_reviews_crud()
+    return templates.TemplateResponse("index.html", {"request": request, "reviews" : reviews})
 
 @app.get("/reviews/", response_class=HTMLResponse)
 async def read_reviews(request: Request):

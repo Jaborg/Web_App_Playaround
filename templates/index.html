@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to The Name of the Rose</title>
-    <link rel="stylesheet" href="../../static/css/style.css">
-</head>
-<body>
-    <h1>Welcome to The Name of the Rose</h1>
-    <p>This is the index page for The Name of the Rose.</p>
-    <p>Click the button below to start reading:</p>
-    <a id="display-btn" href="reviews/thenameoftherose.html">Display</a>
-</body>
-</html>
+{% extends "layout-main.html" %}
+{% block content %}
+
+    <div class="ui container">
+        <h1 class="ui header">Welcome to Jacob's book reviews</h1>
+        <p>This is the index page for all the avaliale reviews and latest content.</p>
+        <p>Click one of the review title's below to start reading:</p>
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <a class="ui teal button" href="/reviews/{{ review }}">{{ review[:-5] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+

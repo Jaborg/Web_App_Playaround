@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        .ui.container {
+            margin-top: 10px;
+        }
+        .ui.card {
+            width: 70%;
+            margin: auto;
+        }
+        .ui.header {
+            text-align: center;
+        }
+        .slim-navbar {
+            padding: 5px 0;
+            height: 75px;
+        }
+        .slim-navbar img {
+            width: 50px; /* Adjust the image width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Make the image rounded */
+        }
+    </style>
+</head>
+<div class="ui inverted menu slim-navbar">
+    <div class="ui container">
+        <a href="#" class="header item">
+            <img class="ui image" src="https://i.ibb.co/wcYKXF1/logo-hobbit.jpg">
+        </a>
+        <a href="/" class="item">Home</a>
+        <a href="#" class="item">About</a>
+        <a href="#" class="item">Contact</a>
+    </div>
+</div>
+<body>
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
