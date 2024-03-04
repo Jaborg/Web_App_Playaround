@@ -13,6 +13,7 @@ def read_reviews_crud():
     return reviews
 
 def read_review(title: str):
+    
     return f'reviews/{title}'
 
     

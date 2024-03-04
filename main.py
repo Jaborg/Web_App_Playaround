@@ -22,7 +22,7 @@ async def read_root(request: Request):
 
 @app.get("/reviews/", response_class=HTMLResponse)
 async def read_reviews(request: Request):
-    reviews_data = read_reviews_crud()
+    reviews_data = read_reviews_crud
     return templates.TemplateResponse("reviews.html", {"request": request, "reviews": reviews_data})
 
 
