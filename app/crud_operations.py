@@ -3,7 +3,7 @@ import os
 from pydantic import BaseModel
 
 # In-memory storage for book reviews
-reviews = os.listdir('templates/reviews')
+reviews = os.listdir('app/templates/reviews')
 
 class Review(BaseModel):
     title: str

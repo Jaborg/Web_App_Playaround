@@ -1,0 +1,7 @@
+version: '3'
+services:
+  your_service_name:
+    image: book_site:latest
+    ports:
+      - "8000:8000"
+    # Add other service configuration as needed

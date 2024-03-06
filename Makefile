@@ -4,6 +4,6 @@ setup:
 	 env/bin/pip3 install -r requirements.txt
 
 run_app:
-	uvicorn main:app --reload
+	uvicorn app.main:app --reload --host 0.0.0.0
 
 
