@@ -1,30 +1,23 @@
-
-variable "CLIENT_ID" {}
-variable "CLIENT_SECRET" {}
-variable "REDDIT_USERNAME" {}
-variable "PASSWORD" {}
-variable "USER_AGENT" {}
-
 variable "server_port" {
   description = "The port the server will use for HTTP requests"
-  type        = number
-  default     = 8080
+  default = 8000
 }
 
-variable "alb_name" {
-  description = "The name of the ALB"
-  type        = string
-  default     = "terraform-asg-example"
+variable "cluster_name" {
+  description = "The name to use for all the cluster resources"
+  type = string
+  default = "Test_Jacob"
+  
 }
 
-variable "instance_security_group_name" {
-  description = "The name of the security group for the EC2 Instances"
-  type        = string
-  default     = "terraform-example-instance"
+variable "min_size" {
+  description = "The minimum number of EC2 Instances in the ASG"
+  type = number
+  default = 1
 }
 
-variable "alb_security_group_name" {
-  description = "The name of the security group for the ALB"
-  type        = string
-  default     = "terraform-example-alb"
+variable "max_size" {
+  description = "The maximum number of EC2 Instances in the ASG"
+  type = number
+  default = 2
 }

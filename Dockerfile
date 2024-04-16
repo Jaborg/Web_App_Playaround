@@ -3,10 +3,14 @@ FROM python:3.12
 COPY app/ ./app
 COPY requirements.txt .
 COPY Makefile .
+COPY docker-compose.yml .
+COPY Dockerfile .
 
 # Install dependencies
 RUN python3 -m venv env
 RUN env/bin/python3 -m pip install --upgrade pip
 RUN env/bin/pip3 install -r requirements.txt -v
+
+EXPOSE 8000
 
 CMD ["/bin/bash", "-c", "source env/bin/activate && make run_app"]
