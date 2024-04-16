@@ -21,3 +21,13 @@ variable "max_size" {
   type = number
   default = 2
 }
+
+variable "AWS_ACCESS_KEY_ID" {
+  description = "An example variable"
+  type        = string
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  description = "An example variable"
+  type        = string
+}

@@ -14,10 +14,15 @@ locals {
 
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "ami-0f007bf1d5c770c6e"
-  instance_type   = "t2.micro"
+  image_id        = "ami-029b91ed285a24a90"
+  instance_type   = "t4g.micro"
   security_groups = [aws_security_group.instance.id]
   key_name      = "ec2keybookreview"
+
+  user_data = templatefile("user-data.sh", {
+    AWS_ACCESS_KEY_ID = var.AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY  = var.AWS_SECRET_ACCESS_KEY
+  })
 
 
   # Required when using a launch configuration with an auto scaling group.
@@ -32,11 +37,19 @@ resource "aws_security_group" "instance" {
   name = "${var.cluster_name}-instance"
 
   ingress {
-    from_port   = "${var.server_port}"
-    to_port     = "${var.server_port}"
+    from_port   = 8000
+    to_port     = 8000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     from_port   = 22
     to_port     = 22
