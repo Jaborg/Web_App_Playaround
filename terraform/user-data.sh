@@ -1,5 +1,10 @@
-echo export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" >> /etc/profile
-echo export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" >> /etc/profile
+#!/bin/bash
+
+echo 'export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}' >> ~/.bashrc
+echo 'export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}' >> ~/.bashrc
+
+source ~/.bashrc
+
 
 sudo yum update -y
 sudo yum install docker -y

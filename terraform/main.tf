@@ -109,3 +109,19 @@ data "aws_subnets" "default" {
     values = [data.aws_vpc.default.id]
   }
 }
+
+output "ACCESS_KEY" {
+  value = var.AWS_ACCESS_KEY_ID
+}
+
+output "SECRET_KEY" {
+  value = var.AWS_SECRET_ACCESS_KEY
+}
+
+
+output "rendered_user_data" {
+  value = templatefile("user-data.sh", {
+    AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
+  })
+}
