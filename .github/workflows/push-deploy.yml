@@ -2,11 +2,11 @@
 name: Build Deploy to Amazon ECR
 
 on:
-  paths:
+  push:
+    paths:
       - 'app/**'  # Trigger only when files in the "app" directory are modified
       - 'Makefile'
       - 'requirements.txt'
-  push:
     branches: [ "main" ]
 
 env:
