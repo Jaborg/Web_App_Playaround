@@ -7,6 +7,7 @@ on:
       - 'app/**'  # Trigger only when files in the "app" directory are modified
       - 'Makefile'
       - 'requirements.txt'
+      - '.github/**'
     branches: [ "main" ]
 
 env:
