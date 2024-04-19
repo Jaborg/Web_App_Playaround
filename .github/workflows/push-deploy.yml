@@ -19,19 +19,12 @@ permissions:
 jobs:
   deploy:
     name: Deploy
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     environment: Deployment
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
-    - name: Download Docker
-      id: download-docker
-      run: |
-        brew install PACKAGE_NAME
-        yum install docker -y
-        service docker start
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
