@@ -29,6 +29,7 @@ jobs:
     - name: Download Docker
       id: download-docker
       run: |
+        brew install PACKAGE_NAME
         yum install docker -y
         service docker start
 
