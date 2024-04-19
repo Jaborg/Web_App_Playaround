@@ -26,6 +26,15 @@
             height: auto; /* Maintain aspect ratio */
             border-radius: 50%; /* Make the image rounded */
         }
+        .teal-bar {
+            background-color: teal;
+            padding: 10px 0;
+            text-align: left;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <div class="ui inverted menu slim-navbar">
@@ -43,6 +52,10 @@
 
 {% block content %}
 {% endblock %}
+
+<div class="teal-bar">
+   Jaborg property
+</div>
 
 </body>
 </html>
