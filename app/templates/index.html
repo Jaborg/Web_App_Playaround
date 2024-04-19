@@ -6,9 +6,9 @@
         <p>This is the index page for all the avaliale reviews and latest content.</p>
         <p>Click one of the review title's below to start reading:</p>
         <ul>
-            {% for review in reviews %}
+            {% for i in range(reviews|length) %}
                 <li>
-                    <a class="ui teal button" style="margin-top: 10px;"  href="/reviews/{{ review }}">{{ review[:-5] }}</a>
+                    <a class="ui teal button" style="margin-top: 10px;"  href="/reviews/{{reviews[i]}}">{{ p_reviews[i] }}</a>
                 </li>
             {% endfor %}
         </ul>

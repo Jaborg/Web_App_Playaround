@@ -9,6 +9,11 @@ class Review(BaseModel):
     title: str
     content: str
 
+
+def pretty_reviews():
+    new_reviews = [x[:-5].replace('-',' ') for x in reviews]
+    return new_reviews
+
 def read_reviews_crud():
     return reviews
 

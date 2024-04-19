@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from app.crud_operations import  read_review, read_reviews_crud
+from app.crud_operations import  read_review, read_reviews_crud , pretty_reviews
 
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
@@ -18,7 +18,8 @@ class ReviewInput(BaseModel):
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     reviews = read_reviews_crud()
-    return templates.TemplateResponse("index.html", {"request": request, "reviews" : reviews})
+    p_reviews = pretty_reviews()
+    return templates.TemplateResponse("index.html", {"request": request, "reviews" : reviews, 'p_reviews':p_reviews})
 
 @app.get("/reviews/", response_class=HTMLResponse)
 async def read_reviews(request: Request):
