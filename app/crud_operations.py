@@ -11,11 +11,11 @@ class Review(BaseModel):
 
 
 def pretty_reviews():
-    new_reviews = [x[:-5].replace('-',' ') for x in reviews]
+    new_reviews = [x[:-5].replace('-',' ') for x in reviews if x != 'images']
     return new_reviews
 
 def read_reviews_crud():
-    return reviews
+    return [x for x in reviews if x != 'images']
 
 def read_review(title: str):
     
