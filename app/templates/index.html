@@ -1,21 +1,32 @@
 {% extends "layout-main.html" %}
+
 {% block content %}
+<div class="ui container">
+    <h1 class="ui header">Welcome to Jacob's book reviews</h1>
+    <p>This is my home page for all the available reviews and latest content.</p>
+    <p>Click one of the review titles below to start reading:</p>
+    <ul>
+        {% for i in range(reviews|length) %}
+        <li>
+            <a class="ui teal button" style="margin-top: 10px;" href="/reviews/{{reviews[i]}}">{{ p_reviews[i] }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 
-    <div class="ui container">
-        <h1 class="ui header">Welcome to Jacob's book reviews</h1>
-        <p>This is the index page for all the avaliable reviews and latest content.</p>
-        <p>Click one of the review title's below to start reading:</p>
-        <ul>
-            {% for i in range(reviews|length) %}
-                <li>
-                    <a class="ui teal button" style="margin-top: 10px;"  href="/reviews/{{reviews[i]}}">{{ p_reviews[i] }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="image-text-container">
+        <div class="text">
+            <p>This is my little website for posting reviews of the books I've read. It's a work in progress so you might see some drastic changes 
+                over the course of the next few months. I will post updates once I have the fucntionality to handle updates, so yeah, stay tuned in. 
+                I will be posting my websites email, as well as providing you with the opportunity to subscribe to my as of yet non existent newsletter. 
+                This site is about to explode!!!
+            </p>
 
-        <div class="ui centered image" style="margin-top: 20px;">
+            <p>Also you may notice the About and Contact pages are not working, the admins are very much aware
+            </p>
+        </div>
+        <div class="image">
             <img src="https://i.pinimg.com/originals/90/99/3d/90993da9bd6eec4611167cbafa58decf.gif">
-          </div>
+        </div>
     </div>
-    {% endblock %}
-
+</div>
+{% endblock %}

@@ -10,10 +10,12 @@
         .ui.container {
             margin-top: 10px;
             font-size: 15px;
+            height: auto;
+            
         }
         .ui.card {
             width: 90%;
-            margin: auto;
+            margin-top: 50px;
             padding: 5px
         }
         .ui.header {
@@ -21,16 +23,27 @@
             font-size: 25px;
         }
         .ui.container.review {
-            background-size: cover;
+            background-size: contain;
+            background-position: center; /* Center the background image */
             padding: 20px;
-            color: white; /* Set text color to white for better contrast */        }
+            color: white; 
+            height: 170px;
+}
         .ui.title.header {
             font-size: 40px; /* Adjust the font size as needed */
             margin-bottom: auto; /* Adjust the margin as needed */
+            color: white; 
+            background-color: turquoise;
+            width: 20%;
+
         }
         .ui.author.header {
             font-size: 20px; /* Adjust the font size as needed */
             margin-top: 2; /* Reset top margin */
+            color: white; 
+            background-color: turquoise;
+            width: 20%; 
+
         }
         .slim-navbar {
             padding: 5px 0;
@@ -43,15 +56,41 @@
         }
         .teal-bar {
             background-color: teal;
-            padding: 10px 0;
             text-align: left;
             color: white;
             bottom: 0;
             width: 100%;
+            position: fixed;
+            padding: 5px 0;
+            margin-top: 30px
         }
         .description {
             font-size: 20px;
         }
+        .image-text-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split the container into two columns */
+    gap: 20px; /* Add gap between the columns */
+    margin-top: 40px; /* Add margin from the content above */
+    border-top: 1px solid #ddd; /* Add border between the content above and the image */
+    padding-top: 20px; /* Add padding to the top to separate the border from the text */
+}
+
+.image-text-container .text {
+    grid-column: 1; /* Place the text in the first column */
+}
+
+.image-text-container .image {
+    grid-column: 2; /* Place the image in the second column */
+    text-align: right; /* Align the image to the right */
+}
+
+.image-text-container img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
     </style>
 </head>
 <div class="ui inverted menu slim-navbar">
