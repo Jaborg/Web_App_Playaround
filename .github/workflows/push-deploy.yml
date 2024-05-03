@@ -8,6 +8,7 @@ on:
       - 'Makefile'
       - 'requirements.txt'
       - '.github/**'
+      - 'Dockerfile'
     branches: [ "main" ]
 
 env:
