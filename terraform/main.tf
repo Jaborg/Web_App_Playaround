@@ -15,7 +15,7 @@ locals {
 
 resource "aws_launch_configuration" "example" {
   image_id        = "ami-07edc58546d708802"
-  instance_type   = "t2.medium"
+  instance_type   = "t2.micro"
   security_groups = [aws_security_group.instance.id]
   key_name      = "ec2keybookreview"
 
