@@ -9,7 +9,7 @@ setup:
 	 env/bin/pip3 install -r requirements-test.txt
 
 run_app:
-	uvicorn app.main:app 
+	uvicorn app.main:app --host 0.0.0.0
 
 test-crud:
 	pytest tests/test-crud.py
