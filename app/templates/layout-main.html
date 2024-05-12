@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,56 +11,74 @@
             margin-top: 10px;
             font-size: 15px;
             height: auto;
-            
+
         }
+
         .ui.card {
             width: 90%;
             padding: 5px
         }
+
         .ui.header {
             text-align: left;
             font-size: 25px;
         }
+
         .ui.container.review {
             background-size: contain;
-            background-position: center; /* Center the background image */
+            background-position: center;
+            /* Center the background image */
             padding: 20px;
-            color: white; 
-            height :auto;
+            color: white;
+            height: auto;
 
-}
+        }
+
         .ui.title.header {
-            font-size: 40px; /* Adjust the font size as needed */
-            margin-bottom: auto; /* Adjust the margin as needed */
-            color: white; 
+            font-size: 40px;
+            /* Adjust the font size as needed */
+            margin-bottom: auto;
+            /* Adjust the margin as needed */
+            color: white;
             background-color: turquoise;
             display: inline-block;
-            padding: 10px 20px; /* Add padding for better appearance */
+            padding: 10px 20px;
+            /* Add padding for better appearance */
             border-radius: 20px;
 
 
         }
+
         .ui.author.header {
-            font-size: 20px; /* Adjust the font size as needed */
-            margin-top: 2; /* Reset top margin */
-            color: white; 
+            font-size: 20px;
+            /* Adjust the font size as needed */
+            margin-top: 2;
+            /* Reset top margin */
+            color: white;
             background-color: turquoise;
-            width: 30%; 
-            padding: 10px 20px; /* Add padding for better appearance */
+            width: 30%;
+            padding: 10px 20px;
+            /* Add padding for better appearance */
             border-radius: 20px;
 
 
 
         }
+
         .slim-navbar {
             padding: 5px 0;
             height: 75px;
         }
+
         .slim-navbar img {
-            width: 50px; /* Adjust the image width as needed */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 50%; /* Make the image rounded */
+            width: 50px;
+            /* Adjust the image width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 50%;
+            /* Make the image rounded */
         }
+
         .teal-bar {
             background-color: teal;
             text-align: left;
@@ -71,42 +89,56 @@
             padding: 5px 0;
             margin-top: 30px
         }
+
         .description {
             font-size: 20px;
         }
+
         .image-text-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Split the container into two columns */
-    gap: 20px; /* Add gap between the columns */
-    margin-top: 40px; /* Add margin from the content above */
-    border-top: 1px solid #ddd; /* Add border between the content above and the image */
-    padding-top: 20px; /* Add padding to the top to separate the border from the text */
-}
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Split the container into two columns */
+            gap: 20px;
+            /* Add gap between the columns */
+            margin-top: 40px;
+            /* Add margin from the content above */
+            border-top: 1px solid #ddd;
+            /* Add border between the content above and the image */
+            padding-top: 20px;
+            /* Add padding to the top to separate the border from the text */
+        }
 
-.image-text-container .text {
-    grid-column: 1; /* Place the text in the first column */
-}
+        .image-text-container .text {
+            grid-column: 1;
+            /* Place the text in the first column */
+        }
 
-.image-text-container .image {
-    grid-column: 2; /* Place the image in the second column */
-    text-align: right; /* Align the image to the right */
-}
+        .image-text-container .image {
+            grid-column: 2;
+            /* Place the image in the second column */
+            text-align: right;
+            /* Align the image to the right */
+        }
 
-.image-text-container img {
-    max-width: 100%; /* Ensure the image doesn't exceed its container */
-    height: auto; /* Maintain aspect ratio */
-}
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    .ui.container.review {
-        height: auto; /* Adjust the height for smaller screens */
-    }
+        .image-text-container img {
+            max-width: 100%;
+            /* Ensure the image doesn't exceed its container */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
 
-    .ui.card {
-        margin-top: 10px; /* Reduce margin for smaller screens */
-    }
-}
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .ui.container.review {
+                height: auto;
+                /* Adjust the height for smaller screens */
+            }
 
+            .ui.card {
+                margin-top: 10px;
+                /* Reduce margin for smaller screens */
+            }
+        }
     </style>
 </head>
 <div class="ui inverted menu slim-navbar">
@@ -119,15 +151,17 @@
         <a href="#" class="item">Contact</a>
     </div>
 </div>
+
 <body>
 
 
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-<div class="teal-bar">
-    Pre-Alpha release
-</div>
+    <div class="teal-bar">
+        Pre-Alpha release
+    </div>
 
 </body>
+
 </html>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Book Reviews</title>
 </head>
+
 <body>
     <h1>Book Reviews</h1>
     <ul>
         {% for title, review in reviews.items() %}
-            <li><a href="/reviews/{{ title }}">{{ review.title }}</a></li>
+        <li><a href="/reviews/{{ title }}">{{ review.title }}</a></li>
         {% endfor %}
     </ul>
 </body>
+
 </html>
