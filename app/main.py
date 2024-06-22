@@ -21,6 +21,10 @@ async def read_root(request: Request):
     p_reviews = pretty_reviews()
     return templates.TemplateResponse("index.html", {"request": request, "reviews" : reviews, 'p_reviews':p_reviews})
 
+@app.get("/about", response_class=HTMLResponse)
+async def read_about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
 @app.get("/reviews/", response_class=HTMLResponse)
 async def read_reviews(request: Request):
     reviews_data = read_reviews_crud
