@@ -143,6 +143,17 @@
             /* Maintain aspect ratio */
         }
 
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-container .item.centered {
+            margin: 0 auto;
+        }
+
+
         /* Media query for smaller screens */
         @media screen and (max-width: 768px) {
             .ui.container.review {
@@ -158,15 +169,19 @@
     </style>
 </head>
 <div class="ui inverted menu slim-navbar">
-    <div class="ui container">
+    <div class="ui container flex-container">
         <a href="#" class="header item">
             <img class="ui image" src="https://i.ibb.co/wcYKXF1/logo-hobbit.jpg">
         </a>
         <a href="/" class="item">Home</a>
         <a href="/about" class="item">About</a>
         <a href="#" class="item">Contact</a>
+        <div class="item centered">
+            <span style="color: teal; font-size: 50px;">fat dog reads</span>
+        </div>
     </div>
 </div>
+
 
 <body>
 
