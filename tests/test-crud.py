@@ -2,7 +2,7 @@ import os
 
 from mock import patch
 
-from app.crud_operations import pretty_reviews
+from app.crud import pretty_reviews
 
 
 reviews = os.listdir('tests/test_reviews/')
