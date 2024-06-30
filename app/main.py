@@ -49,14 +49,9 @@ async def edit_review_handler(request: Request, title: str):
     review = crud.read_review(title)
     return templates.TemplateResponse("edit_review.html", {"request": request, "review": review})
 
+## New functions based on sqlalchemy models
 
-@app.post("/reviews_test/", response_model=schemas.Review)
-def create_review(user: schemas.ReviewCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=user.email)
-    if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    return crud.create_user(db=db, user=user)
-
+# User functions
 
 @app.get("/users/", response_model=list[schemas.User])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -72,14 +67,30 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
-@app.post("/users/{user_id}/items/", response_model=schemas.Item)
-def create_review_for_user(
-    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
-):
-    return crud.create_user_item(db=db, item=item, user_id=user_id)
+@app.post("/users_test/", response_model=schemas.User)
+def create_a_review(review: schemas.UserCreate, user_id : int, db: Session = Depends(get_db)):
+    review = crud.get_reviews_by_title(db, title=review.title)
+    if review:
+        raise HTTPException(status_code=400, detail="Review already exists")
+    return crud.create_review(db=db, user_id=user_id)
 
 
-@app.get("/items/", response_model=list[schemas.Item])
-def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    items = crud.get_items(db, skip=skip, limit=limit)
-    return items
+
+# Review functions
+
+@app.get("/reviews_test/", response_model=list[schemas.Review])
+def read_reviews(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    reviews = crud.get_reviews(db, skip=skip, limit=limit)
+    return reviews
+
+@app.get("/reviews_test/{title}", response_model=list[schemas.Review])
+def read_review_by_title(title : str, db: Session = Depends(get_db)):
+    review = crud.get_reviews_by_title(db, title=title)
+    return review
+
+@app.post("/reviews_test/", response_model=schemas.Review)
+def create_a_review(review: schemas.ReviewCreate, user_id : int, db: Session = Depends(get_db)):
+    mentioned_review = crud.get_reviews_by_title(db, title=review.title)
+    if mentioned_review:
+        raise HTTPException(status_code=400, detail="Review already exists")
+    return crud.create_review(db=db, review = review, user_id=user_id)

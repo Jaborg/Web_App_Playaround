@@ -17,9 +17,10 @@ class ReviewCreate(ReviewBase):
 class Review(ReviewBase):
     id: int
     date_created: date
+    user_id : int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserBase(BaseModel):
@@ -37,4 +38,4 @@ class User(UserBase):
     reviews: list[Review] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
