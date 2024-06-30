@@ -68,7 +68,7 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/users_test/", response_model=schemas.User)
-def create_a_review(user: schemas.UserCreate, db: Session = Depends(get_db)):
+def create_a_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     created_email = crud.get_user_by_email(db, email=user.email)
     if created_email:
         raise HTTPException(status_code=400, detail="User with this email already exists")
