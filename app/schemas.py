@@ -24,6 +24,7 @@ class Review(ReviewBase):
 
 
 class UserBase(BaseModel):
+    id: int
     email: str
 
 
@@ -32,9 +33,7 @@ class UserCreate(UserBase):
 
 
 class User(UserBase):
-    id: int
     is_admin: bool
-    user_id : int
     reviews: list[Review] = []
 
     class Config:

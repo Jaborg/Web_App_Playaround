@@ -68,11 +68,11 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/users_test/", response_model=schemas.User)
-def create_a_review(review: schemas.UserCreate, user_id : int, db: Session = Depends(get_db)):
-    review = crud.get_reviews_by_title(db, title=review.title)
-    if review:
-        raise HTTPException(status_code=400, detail="Review already exists")
-    return crud.create_review(db=db, user_id=user_id)
+def create_a_review(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    created_email = crud.get_user_by_email(db, email=user.email)
+    if created_email:
+        raise HTTPException(status_code=400, detail="User with this email already exists")
+    return crud.create_user(db=db, user = user)
 
 
 

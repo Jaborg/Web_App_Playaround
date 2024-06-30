@@ -20,10 +20,9 @@ class Review(Base):
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, ForeignKey("reviews.user_id"), primary_key=True)
     email = Column(String, index=True)
     hashed_password = Column(String, index=True)
     is_admin = Column(Boolean,default=False)
-    user_id = Column(Integer, ForeignKey("reviews.user_id"))
 
     reviews = relationship("Review", back_populates="user", foreign_keys=[Review.user_id])
