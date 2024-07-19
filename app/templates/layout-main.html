@@ -11,12 +11,11 @@
             margin-top: 10px;
             font-size: 15px;
             height: auto;
-
         }
 
         .ui.card {
             width: 90%;
-            padding: 5px
+            padding: 5px;
         }
 
         .ui.header {
@@ -31,7 +30,6 @@
             padding: 20px;
             color: white;
             height: auto;
-
         }
 
         .ui.container.about {
@@ -46,8 +44,6 @@
             font-size: 20px;
             margin-top: auto;
             border-radius: 20px;
-
-
         }
 
         .ui.title.header {
@@ -61,8 +57,6 @@
             padding: 10px 20px;
             /* Add padding for better appearance */
             border-radius: 20px;
-
-
         }
 
         .ui.author.header {
@@ -79,7 +73,6 @@
             word-wrap: break-word;
             overflow: hidden;
         }
-
 
         .slim-navbar {
             padding: 5px 0;
@@ -103,7 +96,7 @@
             width: 100%;
             position: fixed;
             padding: 5px 0;
-            margin-top: 30px
+            margin-top: 30px;
         }
 
         .description {
@@ -153,15 +146,13 @@
             margin: 0 auto;
         }
 
-
         .slim-navbar .item.centered span {
             color: teal;
-            font-size: 24px;
+            font-size: 50px;
             /* Adjusted font size */
             white-space: nowrap;
             /* Prevent text from wrapping */
         }
-
 
         /* Media query for smaller screens */
         @media screen and (max-width: 768px) {
@@ -174,26 +165,41 @@
                 margin-top: 10px;
                 /* Reduce margin for smaller screens */
             }
+
+            .slim-navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .slim-navbar .item {
+                margin: 5px 0;
+            }
+
+            .slim-navbar .item.centered span {
+                font-size: 24px;
+                text-align: center;
+                white-space: normal;
+            }
         }
     </style>
 </head>
-<div class="ui inverted menu slim-navbar">
-    <div class="ui container flex-container">
-        <a href="#" class="header item">
-            <img class="ui image" src="https://i.ibb.co/wcYKXF1/logo-hobbit.jpg">
-        </a>
-        <a href="/" class="item">Home</a>
-        <a href="/about" class="item">About</a>
-        <a href="#" class="item">Contact</a>
-        <div class="item centered">
-            <span style="color: teal; font-size: 50px;">fat dog reads</span>
-        </div>
-    </div>
-</div>
-
 
 <body>
 
+    <div class="ui inverted menu slim-navbar">
+        <div class="ui container flex-container">
+            <a href="#" class="header item">
+                <img class="ui image" src="https://i.ibb.co/wcYKXF1/logo-hobbit.jpg">
+            </a>
+            <a href="/" class="item">Home</a>
+            <a href="/about" class="item">About</a>
+            <a href="#" class="item">Contact</a>
+            <div class="item centered">
+                <span style="color: teal; font-size: 50px;">fat dog reads</span>
+            </div>
+        </div>
+    </div>
 
     {% block content %}
     {% endblock %}
