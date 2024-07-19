@@ -77,6 +77,9 @@
         .slim-navbar {
             padding: 5px 0;
             height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .slim-navbar img {
@@ -86,6 +89,13 @@
             /* Maintain aspect ratio */
             border-radius: 50%;
             /* Make the image rounded */
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Add some gap between the nav items */
         }
 
         .teal-bar {
@@ -140,6 +150,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         .flex-container .item.centered {
@@ -156,30 +167,33 @@
 
         /* Media query for smaller screens */
         @media screen and (max-width: 768px) {
-            .ui.container.review {
-                height: auto;
-                /* Adjust the height for smaller screens */
-            }
-
-            .ui.card {
-                margin-top: 10px;
-                /* Reduce margin for smaller screens */
-            }
-
             .slim-navbar {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
+                height: auto;
+                padding: 10px;
             }
 
-            .slim-navbar .item {
-                margin: 5px 0;
+            .nav-items {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .slim-navbar .item.centered {
+                order: -1;
+                margin-bottom: 10px;
             }
 
             .slim-navbar .item.centered span {
                 font-size: 24px;
                 text-align: center;
                 white-space: normal;
+            }
+
+            .ui.card {
+                margin-top: 10px;
+                /* Reduce margin for smaller screens */
             }
         }
     </style>
@@ -192,9 +206,11 @@
             <a href="#" class="header item">
                 <img class="ui image" src="https://i.ibb.co/wcYKXF1/logo-hobbit.jpg">
             </a>
-            <a href="/" class="item">Home</a>
-            <a href="/about" class="item">About</a>
-            <a href="#" class="item">Contact</a>
+            <div class="nav-items">
+                <a href="/" class="item">Home</a>
+                <a href="/about" class="item">About</a>
+                <a href="#" class="item">Contact</a>
+            </div>
             <div class="item centered">
                 <span style="color: teal; font-size: 50px;">fat dog reads</span>
             </div>
