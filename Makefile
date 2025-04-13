@@ -15,6 +15,6 @@ run_app_dev:
 	uvicorn app.main:app  --reload  --host 0.0.0.0
 	
 test-crud:
-	pytest tests/test-crud.py
+	pytest tests/
 
 

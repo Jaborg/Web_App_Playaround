@@ -1,13 +1,19 @@
+/* General Styles */
 body {
     font-family: "Times New Roman", Times, serif;
     text-align: center;
-    background-color: turquoise;
+    background-color: #e0f7fa;
+    /* Softer turquoise for better readability */
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     color: #333;
+    margin: 20px 0;
 }
 
+/* Button Styles */
 #display-btn {
     background-color: #4CAF50;
     color: white;
@@ -17,8 +23,21 @@ h1 {
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 #display-btn:hover {
     background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    #display-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
