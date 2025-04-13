@@ -1,14 +1,9 @@
 import os
-
-from mock import patch
-
+from unittest.mock import patch
 from app.crud import pretty_reviews
 
-
-reviews = os.listdir('tests/test_reviews/')
-
-
-@patch('app.crud_operations.reviews',reviews)
 def test_pretty_reviews():
-    return_value = pretty_reviews()
-    assert return_value == ['test review 1', 'test review 2']
+    """Test the pretty_reviews function to ensure it formats review titles correctly."""
+    with patch('os.listdir', return_value=['test-review-1.html', 'test-review-2.html', 'images']):
+        return_value = pretty_reviews()
+        assert return_value == ['test review 1', 'test review 2']

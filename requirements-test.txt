@@ -1,7 +1,9 @@
-fastapi
+fastapi>=0.109.2
 uvicorn
 jinja2
 logging
 mock
 pytest
 sqlalchemy
+httpx>=0.28.1
+starlette>=0.36.3

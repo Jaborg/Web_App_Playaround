@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
 from datetime import date
 from typing import List, Optional
 
@@ -15,7 +15,7 @@ class Review(ReviewBase):
     date_created: date
     user_id: int
 
-    class Config:
+    class Config(ConfigDict):
         from_attributes = True
 
 class UserBase(BaseModel):
@@ -29,5 +29,5 @@ class User(UserBase):
     is_admin: bool = Field(False, description="Indicates if the user is an admin")
     reviews: List[Review] = []
 
-    class Config:
+    class Config(ConfigDict):
         from_attributes = True
