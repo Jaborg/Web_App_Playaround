@@ -2,26 +2,26 @@
 
 {% block content %}
 <div class="ui container">
-    <div class="ui container" style="text-align: center; margin-top: 10px; ">
+    <div class="ui container" style="text-align: center; margin-top: 10px;">
         <div class="image">
-            <img src="/static/images/Fatdog.jpeg" style="max-width: 80%;">
+            <img src="/static/images/Fatdog.jpeg" alt="Fatdog sleeping" style="max-width: 80%; border-radius: 10px;">
         </div>
         <p>This is the home page for all things Fatdog.</p>
-        <p>Try not to wake him above</p>
+        <p>Try not to wake him above.</p>
     </div>
 
-    <h2 class="ui header">Latest reviews</h2>
+    <h2 class="ui header">Latest Reviews</h2>
     <div class="image-text-container">
-        <ul>
+        <ul style="list-style-type: none; padding: 0;">
             {% for i in range(reviews|length) %}
-            <li>
-                <a class="ui teal button" style="margin-top: 10px;" href="/reviews/{{reviews[i]}}">{{ p_reviews[i]
-                    }}</a>
+            <li style="margin-bottom: 10px;">
+                <a class="ui teal button" href="/reviews/{{reviews[i]}}">{{ p_reviews[i] }}</a>
             </li>
             {% endfor %}
         </ul>
-        <div class="image">
-            <img src="https://i.pinimg.com/originals/90/99/3d/90993da9bd6eec4611167cbafa58decf.gif">
+        <div class="image" style="text-align: center; margin-top: 20px;">
+            <img src="https://i.pinimg.com/originals/90/99/3d/90993da9bd6eec4611167cbafa58decf.gif"
+                alt="Animated gif of a dog" style="max-width: 50%; border-radius: 10px;">
         </div>
     </div>
 </div>

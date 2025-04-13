@@ -1,40 +1,33 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, Field
 from datetime import date
-
-
+from typing import List, Optional
 
 class ReviewBase(BaseModel):
-    title: str
-    author: str
-    content: str | None = None
-   
-
+    title: str = Field(..., max_length=100, description="Title of the review")
+    author: str = Field(..., max_length=50, description="Author of the review")
+    content: Optional[str] = Field(None, description="Content of the review")
 
 class ReviewCreate(ReviewBase):
     pass
 
-
 class Review(ReviewBase):
     id: int
     date_created: date
-    user_id : int
+    user_id: int
 
     class Config:
         from_attributes = True
 
-
 class UserBase(BaseModel):
-    id: int
-    email: str
-
+    email: EmailStr = Field(..., description="Email address of the user")
 
 class UserCreate(UserBase):
-    password: str
-
+    password: str = Field(..., min_length=8, description="Password for the user")
 
 class User(UserBase):
-    is_admin: bool
-    reviews: list[Review] = []
+    id: int
+    is_admin: bool = Field(False, description="Indicates if the user is an admin")
+    reviews: List[Review] = []
 
     class Config:
         from_attributes = True
