@@ -4,10 +4,9 @@ variable "server_port" {
 }
 
 variable "cluster_name" {
-  description = "The name to use for all the cluster resources"
+  description = "Name of the cluster"
   type        = string
   default     = "Test-Jacob"
-
 }
 
 variable "min_size" {
@@ -23,11 +22,13 @@ variable "max_size" {
 }
 
 variable "AWS_ACCESS_KEY_ID" {
-  description = "An example variable"
+  description = "AWS Access Key ID"
   type        = string
+  sensitive   = true
 }
 
 variable "AWS_SECRET_ACCESS_KEY" {
-  description = "An example variable"
+  description = "AWS Secret Access Key"
   type        = string
+  sensitive   = true
 }
